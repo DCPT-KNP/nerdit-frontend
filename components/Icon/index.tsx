@@ -16,7 +16,7 @@ import plusImage from './images/plus.svg'
 import resetImage from './images/reset.svg'
 import settingImage from './images/setting.svg'
 
-type IconType =
+export type IconType =
   | 'setting'
   | 'close'
   | 'check'
@@ -31,7 +31,7 @@ type IconType =
   | 'info'
   | 'menu'
 
-const iconImageMap: Record<IconType, string> = {
+export const iconImageMap: Record<IconType, string> = {
   arrow_down: arrowDownImage,
   arrow_left: arrowLeftImage,
   arrow_right: arrowRightImage,
