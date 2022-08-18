@@ -1,4 +1,4 @@
-import { css } from '@emotion/react'
+import { css, SerializedStyles } from '@emotion/react'
 
 import pxToRem from '../../utils/pxToRem'
 import { palette } from '../Palette'
@@ -6,8 +6,9 @@ import { palette } from '../Palette'
 export type ButtonVariant =
   | 'outlined_small'
   | 'outlined_big'
-  | 'filled_primary'
-  | 'filled_secondary'
+  | 'filled'
+  | 'filled_with_icon_primary'
+  | 'filled_with_icon_secondary'
 
 export const basicStyle = css`
   display: flex;
@@ -16,69 +17,78 @@ export const basicStyle = css`
   box-sizing: border-box;
 `
 
-export const buttonStyles = {
+const filledStyle = css`
+  ${basicStyle};
+  border: ${pxToRem(1)}rem solid ${palette.gray70};
+  background-color: ${palette.gray70};
+  color: ${palette.gray10};
+  &:disabled {
+    border-color: ${palette.gray40};
+    background-color: ${palette.gray40};
+    color: ${palette.gray10};
+  }
+  &:hover {
+    border-color: ${palette.gray50};
+    background-color: ${palette.gray50};
+    color: ${palette.gray10};
+  }
+`
+
+export const buttonStyles: Record<ButtonVariant, SerializedStyles> = {
   outlined_small: css`
     ${basicStyle};
-    border: ${pxToRem(1)}rem solid ${palette.GRAY70};
+    border: ${pxToRem(1)}rem solid ${palette.gray70};
     padding: ${pxToRem(8)}rem ${pxToRem(24)}rem;
     background-color: white;
     color: black;
     &:disabled {
-      border-color: ${palette.GRAY40};
-      color: ${palette.GRAY40};
+      border-color: ${palette.gray40};
+      color: ${palette.gray40};
     }
     &:hover {
-      border-color: ${palette.GRAY50};
-      background-color: ${palette.GRAY20};
-      color: ${palette.GRAY50};
+      border-color: ${palette.gray50};
+      background-color: ${palette.gray20};
+      color: ${palette.gray50};
     }
   `,
   outlined_big: css`
     ${basicStyle};
-    border: ${pxToRem(1)}rem solid ${palette.GRAY70};
+    border: ${pxToRem(1)}rem solid ${palette.gray70};
     padding: ${pxToRem(20)}rem ${pxToRem(64)}rem;
     background-color: white;
     color: black;
     &:disabled {
-      border-color: ${palette.GRAY40};
-      background-color: ${palette.GRAY10};
-      color: ${palette.GRAY40};
+      border-color: ${palette.gray40};
+      background-color: ${palette.gray10};
+      color: ${palette.gray40};
     }
     &:hover {
-      border-color: ${palette.GRAY50};
-      background-color: ${palette.GRAY20};
-      color: ${palette.GRAY50};
+      border-color: ${palette.gray50};
+      background-color: ${palette.gray20};
+      color: ${palette.gray50};
     }
   `,
-  filled_primary: css`
-    ${basicStyle};
-    border: ${pxToRem(1)}rem solid ${palette.GRAY70};
+  filled: css`
+    ${filledStyle};
     padding: ${pxToRem(20)}rem ${pxToRem(64)}rem;
-    background-color: ${palette.GRAY70};
-    color: ${palette.GRAY10};
-    &:disabled {
-      border-color: ${palette.GRAY40};
-      background-color: ${palette.GRAY40};
-      color: ${palette.GRAY10};
-    }
-    &:hover {
-      border-color: ${palette.GRAY50};
-      background-color: ${palette.GRAY50};
-      color: ${palette.GRAY10};
-    }
   `,
-  filled_secondary: css`
+  filled_with_icon_primary: css`
+    ${filledStyle};
+    padding: ${pxToRem(20)}rem ${pxToRem(56)}rem ${pxToRem(20)}rem
+      ${pxToRem(64)}rem;
+  `,
+  filled_with_icon_secondary: css`
     ${basicStyle};
-    border: ${pxToRem(1)}rem solid ${palette.GRAY20};
+    border: ${pxToRem(1)}rem solid ${palette.gray20};
     padding: ${pxToRem(20)}rem ${pxToRem(64)}rem;
-    background-color: ${palette.GRAY20};
+    background-color: ${palette.gray20};
     &:disabled {
-      background-color: ${palette.GRAY20};
-      color: ${palette.GRAY40};
+      background-color: ${palette.gray20};
+      color: ${palette.gray40};
     }
     &:hover {
-      background-color: ${palette.GRAY30};
-      color: ${palette.GRAY50};
+      background-color: ${palette.gray30};
+      color: ${palette.gray50};
     }
   `,
 }
