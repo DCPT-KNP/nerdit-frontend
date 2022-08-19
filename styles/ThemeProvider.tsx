@@ -28,19 +28,15 @@ export const getFoundation = (curTheme: AppTheme) => {
   return foundation
 }
 
-const useGetAppTheme = () => {
-  // light or dark
-  const [curTheme] = useAppTheme()
-
-  return getFoundation(curTheme)
-}
-
 export const AppThemeProvider = ({
   children,
 }: {
   children: React.ReactNode
 }) => {
-  const theme = useGetAppTheme()
+  // ex) light or dark
+  const [curTheme] = useAppTheme()
+
+  const theme = getFoundation(curTheme)
 
   return (
     <ThemeProvider theme={theme}>
