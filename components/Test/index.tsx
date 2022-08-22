@@ -1,6 +1,7 @@
 import axios from 'axios'
 import { useEffect, useState } from 'react'
 
+import { StyledTest } from './Test.styled'
 export const testUrl = 'https://jsonplaceholder.typicode.com'
 
 export const httpClient = axios.create({
@@ -8,7 +9,7 @@ export const httpClient = axios.create({
 })
 
 export const Test = () => {
-  const [userData, setUserData] = useState()
+  const [userData, setUserData] = useState<Array<any>>()
 
   useEffect(() => {
     async function fetchData() {
@@ -24,5 +25,14 @@ export const Test = () => {
     console.log('userData::', userData)
   }, [userData])
 
-  return <div>hi</div>
+  return (
+    <div>
+      <StyledTest>
+        hi
+        {userData?.map(({ id, username }) => {
+          return <div key={id}>{username}</div>
+        })}
+      </StyledTest>
+    </div>
+  )
 }

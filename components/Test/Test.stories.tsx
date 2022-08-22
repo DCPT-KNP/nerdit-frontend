@@ -23,10 +23,13 @@ TestStory.parameters = {
         console.log('get msw')
 
         return res(
-          ctx.json({
-            firstName: 'Neil',
-            lastName: 'Maverick',
-          })
+          ctx.json([
+            {
+              id: 1234,
+              name: 'minhyup',
+              username: 'username minhyup',
+            },
+          ])
         )
       }),
     ],
