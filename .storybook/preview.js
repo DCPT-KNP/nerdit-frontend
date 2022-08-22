@@ -1,3 +1,4 @@
+import { addDecorator } from '@storybook/react'
 import { initialize, mswDecorator } from 'msw-storybook-addon'
 
 export const parameters = {
@@ -12,7 +13,7 @@ export const parameters = {
 
 // Initialize MSW
 initialize()
-addDecorator(mswDecorator)
+//export const decorators = [mswDecorator]
 
 // Provide the MSW addon decorator globally
 export const decorators = [
@@ -22,3 +23,4 @@ export const decorators = [
     </div>
   ),
 ]
+addDecorator(mswDecorator)
