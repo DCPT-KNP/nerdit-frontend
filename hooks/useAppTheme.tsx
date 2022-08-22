@@ -2,6 +2,9 @@ import { useCallback, useEffect, useState } from 'react'
 
 import { AppTheme } from '../foundation'
 
+/**
+ * 초기 테마 정보를 가져오는 함수.
+ */
 const getInitialTheme = () => {
   // 로컬스토리지 테마정보
   let localTheme = window.localStorage.getItem('theme') as AppTheme
@@ -23,11 +26,6 @@ const getInitialTheme = () => {
  * @returns 최종 테마 정보
  */
 export const useAppTheme = (): [typeof currentTheme, typeof toggleTheme] => {
-  /**
-   * 초기 테마 정보를 가져오는 함수.
-   */
-  const getCallbackInitialTheme = useCallback(() => getInitialTheme(), [])
-
   /**
    * 현재 태마
    */
@@ -52,8 +50,8 @@ export const useAppTheme = (): [typeof currentTheme, typeof toggleTheme] => {
    */
   // TODO: useLayoutEffect로 수정하기!
   useEffect(() => {
-    setCurrentTheme(getCallbackInitialTheme())
-  }, [getCallbackInitialTheme])
+    getInitialTheme()
+  }, [])
 
   return [currentTheme as AppTheme, toggleTheme]
 }
