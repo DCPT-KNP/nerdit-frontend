@@ -1,9 +1,7 @@
-import { css } from '@emotion/react'
-import styled from '@emotion/styled'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import React from 'react'
 
-import Typo from '../components/Typo'
+import Typo from '../foundation/typography'
 
 export default {
   title: 'Typography',
@@ -12,84 +10,64 @@ export default {
 
 const Template: ComponentStory<typeof Typo> = (args) => <Typo {...args} />
 
-export const Headline = Template.bind({})
-
-Headline.args = {
+export const Display_01 = Template.bind({})
+Display_01.args = {
   Component: 'div',
-  type: 'H',
-  children: 'Heading',
+  type: 'display1',
+  children: 'Display 01',
 }
 
-export const SubHeadline = Template.bind({})
-
-SubHeadline.args = {
+export const Display_02 = Template.bind({})
+Display_02.args = {
   Component: 'div',
-  type: 'SH',
-  children: 'SubHeadline',
+  type: 'display2',
+  children: 'Display 02',
 }
-export const Title1 = Template.bind({})
-
-Title1.args = {
+export const Header_01 = Template.bind({})
+Header_01.args = {
   Component: 'div',
-  type: 'T1',
-  children: 'Title1',
+  type: 'header1',
+  children: 'Header 1',
 }
 
-export const Title2 = Template.bind({})
-
-Title2.args = {
+export const Header_02 = Template.bind({})
+Header_02.args = {
   Component: 'div',
-  type: 'T2',
-  children: 'Title2',
+  type: 'header2',
+  children: 'Header 2',
 }
 
-export const Title3 = Template.bind({})
-
-Title3.args = {
+export const Title_01 = Template.bind({})
+Title_01.args = {
   Component: 'div',
-  type: 'T3',
-  children: 'Title3',
+  type: 'title1',
+  children: 'Title 1',
 }
 
-export const SubTitle1 = Template.bind({})
-
-SubTitle1.args = {
+export const Title_02 = Template.bind({})
+Title_02.args = {
   Component: 'div',
-  type: 'S1',
-  children: 'SubTitle1',
+  type: 'title2',
+  children: 'Title 2',
 }
 
-export const SubTitle2 = Template.bind({})
-
-SubTitle2.args = {
+export const Body_01 = Template.bind({})
+Body_01.args = {
   Component: 'div',
-  type: 'S2',
-  children: 'SubTitle2',
+  type: 'body1',
+  children: 'Body 1',
 }
 
-export const Body1 = Template.bind({})
-
-Body1.args = {
+export const Body_02 = Template.bind({})
+Body_02.args = {
   Component: 'div',
-  type: 'B1',
-  children: 'Body1',
+  type: 'body2',
+  children: 'Body 2',
 }
 
-const Styled = styled(Typo)`
-  color: #ff0000;
-  font-style: italic;
-`
-
-export const StyledText = () => <Styled type="B1">styled</Styled>
-
-export const CssPropText = () => (
-  <Typo
-    type="B1"
-    css={css`
-      color: #00ff00;
-      text-decoration: underline;
-    `}
-  >
-    css prop
-  </Typo>
-)
+export const Caption_01 = Template.bind({})
+Caption_01.args = {
+  Component: 'div',
+  type: 'caption1',
+  children: 'Caption 1',
+}

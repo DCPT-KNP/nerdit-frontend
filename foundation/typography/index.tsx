@@ -6,14 +6,14 @@ import {
   PropsWithChildren,
 } from 'react'
 
-import { TypoType } from './constants'
-import typoStyles from './styles'
+import { TypographyType } from './types'
+import typoStyles from './typoStyles'
 
 const DEFAULT_COMPONENT_TYPE = 'div' as const
 
 interface TypoProps<T extends ElementType = typeof DEFAULT_COMPONENT_TYPE>
   extends HTMLAttributes<T> {
-  type: TypoType
+  type: TypographyType
   Component?: ElementType
 }
 
