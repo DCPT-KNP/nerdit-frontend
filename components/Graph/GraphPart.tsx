@@ -19,7 +19,7 @@ interface Props {
 const GraphPart = ({ variant, skill }: Props) => {
   return (
     <Container variant={variant} skill={skill}>
-      <Text type="display1" color={palette.Base.White}>
+      <Text type="title1" color={palette.Base.White}>
         {skill}
       </Text>
     </Container>
