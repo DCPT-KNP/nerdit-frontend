@@ -1,7 +1,7 @@
 import { CSSProperties, HTMLAttributes, ReactNode } from 'react'
 
 interface FlexProps extends HTMLAttributes<HTMLDivElement> {
-  children: ReactNode
+  children?: ReactNode
   justifyContent?: CSSProperties['justifyContent']
   alignItems?: CSSProperties['alignItems']
   flexDirection?: CSSProperties['flexDirection']

@@ -3,11 +3,11 @@ import styled from '@emotion/styled'
 import React from 'react'
 
 import { Skill } from '../../constants/skills'
+import { SkillColorMap } from '../../constants/skills'
 import palette from '../../foundation/palette'
 import Typo from '../../foundation/typography'
 import pxToRem from '../../utils/pxToRem'
 import Flex from '../Flex'
-import { Colors } from './constants'
 
 const CONTAINER_WIDTH = pxToRem(126)
 const CONTAINER_HEIGHT_SMALL = pxToRem(126)
@@ -39,7 +39,7 @@ const Container = styled(Flex)<Props>`
     variant === 'big'
       ? `${CONTAINER_HEIGHT_LARGE}rem`
       : `${CONTAINER_HEIGHT_SMALL}rem`};
-  background-color: ${({ skill }) => Colors[skill]};
+  background-color: ${({ skill }) => SkillColorMap[skill]};
 `
 
 const Text = styled(Typo)<Pick<Props, 'variant'>>`
