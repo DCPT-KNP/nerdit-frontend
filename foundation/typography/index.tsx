@@ -15,6 +15,7 @@ interface TypoProps<T extends ElementType = typeof DEFAULT_COMPONENT_TYPE>
   extends HTMLAttributes<T> {
   type: TypographyType
   Component?: ElementType
+  color?: string
 }
 
 const Typo = <T extends ElementType = typeof DEFAULT_COMPONENT_TYPE>(
@@ -22,12 +23,18 @@ const Typo = <T extends ElementType = typeof DEFAULT_COMPONENT_TYPE>(
     type,
     children,
     Component = DEFAULT_COMPONENT_TYPE,
+    color = '#000',
     ...rest
   }: PropsWithChildren<TypoProps>,
   ref: ForwardedRef<T>
 ) => {
   return (
-    <Component ref={ref} css={typoStyles[type]} {...rest}>
+    <Component
+      ref={ref}
+      css={typoStyles[type]}
+      style={{ color: color }}
+      {...rest}
+    >
       {children}
     </Component>
   )
