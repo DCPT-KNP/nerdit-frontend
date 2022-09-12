@@ -9,7 +9,7 @@
     "lint": "next lint",
     "storybook": "start-storybook -p 6006 -s ./public",
     "build-storybook": "build-storybook",
-    "chromatic": "npx chromatic --project-token=4f3671b48e97"
+    "chromatic": "chromatic --exit-zero-on-changes"
   },
   "dependencies": {
     "@emotion/babel-preset-css-prop": "^11.10.0",
