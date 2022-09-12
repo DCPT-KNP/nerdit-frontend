@@ -16,7 +16,11 @@ export const Preview = () => (
   <>
     <Flex flexDirection="column" alignItems="flex-start">
       {SkillArray.map((skill) => (
-        <SkillChooseButton skill={skill} key={skill} />
+        <SkillChooseButton
+          skill={skill}
+          clicked={skill === 'UXW' || skill === 'UID'}
+          key={skill}
+        />
       ))}
     </Flex>
   </>

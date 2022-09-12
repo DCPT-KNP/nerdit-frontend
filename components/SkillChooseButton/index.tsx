@@ -13,11 +13,12 @@ import { SkillDescriptionMap } from './constants'
 
 interface Props extends React.HTMLAttributes<HTMLButtonElement> {
   skill: Skill
+  clicked?: boolean
 }
 
-const SkillChooseButton = ({ skill, ...rest }: Props) => {
+const SkillChooseButton = ({ skill, clicked = false, ...rest }: Props) => {
   return (
-    <Container {...rest}>
+    <Container clicked={clicked} {...rest}>
       <Flex justifyContent="flex-start">
         <ColorThumbnail skill={skill} />
         <Spacing rem={0.75} inline />
@@ -31,10 +32,11 @@ const SkillChooseButton = ({ skill, ...rest }: Props) => {
   )
 }
 
-const Container = styled.button`
+const Container = styled.button<{ clicked: boolean }>`
   padding: 1rem;
   background: ${palette.Base.White};
-  border: 1px solid ${palette.Gray[20]};
+  border: 1px solid
+    ${({ clicked }) => (clicked ? palette.Primary[10] : palette.Gray[20])};
   cursor: pointer;
   @media (min-width: ${breakpoints.mobileMaxWidth}px) {
     width: ${pxToRem(390)}rem;
