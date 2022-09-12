@@ -7,12 +7,12 @@ interface Props {
 }
 
 const normalStyle = (rem: number) => css`
-  height: ${rem}px;
+  height: ${rem}rem;
 `
 
 const inlineStyle = (rem: number) => css`
   display: inline;
-  width: ${rem}px;
+  width: ${rem}rem;
 `
 
 const Spacing = styled('div', {
