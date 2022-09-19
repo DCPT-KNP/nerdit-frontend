@@ -1,25 +1,28 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import React from 'react'
 
+import Graph from '../components/Graph/Graph'
 import GraphPart from '../components/Graph/GraphPart'
+import { Skill } from '../constants/skills'
 
 export default {
-  title: 'GraphPart',
-  component: GraphPart,
-} as ComponentMeta<typeof GraphPart>
+  title: 'Graph',
+  component: Graph,
+} as ComponentMeta<typeof Graph>
 
-const Template: ComponentStory<typeof GraphPart> = (args) => (
-  <GraphPart {...args} />
+export const Preview = () => (
+  <Graph
+    type="T"
+    ratio={3}
+    skills={[
+      Skill.GRD,
+      Skill.UXD,
+      Skill.IXD,
+      Skill.BXD,
+      Skill.UID,
+      Skill.UXR,
+      Skill.UXW,
+    ]}
+    css={{ width: '300px' }}
+  />
 )
-
-export const UXD_big = Template.bind({})
-UXD_big.args = {
-  variant: 'big',
-  skill: 'UXD',
-}
-
-export const BXD_small = Template.bind({})
-BXD_small.args = {
-  variant: 'small',
-  skill: 'BXD',
-}

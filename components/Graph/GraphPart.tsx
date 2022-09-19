@@ -1,21 +1,17 @@
-import { css } from '@emotion/react'
 import styled from '@emotion/styled'
 import React from 'react'
 
-import { Skill } from '../../constants/skills'
-import { SkillColorMap } from '../../constants/skills'
+import { Breakpoints } from '../../constants/breakpoints'
 import palette from '../../foundation/palette'
 import Typo from '../../foundation/typography'
 import pxToRem from '../../utils/pxToRem'
 import Flex from '../Flex'
-
-const CONTAINER_WIDTH = pxToRem(126)
-const CONTAINER_HEIGHT_SMALL = pxToRem(126)
-const CONTAINER_HEIGHT_LARGE = pxToRem(544)
+import { Colors, GraphPartVariant, SkillChoose } from './constants'
+import SmileIcon from './images/smileImage.svg'
 
 interface Props {
-  variant: 'big' | 'small'
-  skill: Skill
+  variant: GraphPartVariant
+  skill: SkillChoose
 }
 
 const GraphPart = ({ variant, skill }: Props) => {
@@ -24,33 +20,45 @@ const GraphPart = ({ variant, skill }: Props) => {
       variant={variant}
       skill={skill}
       flexDirection="column"
-      justifyContent={variant === 'big' ? 'flex-end' : 'center'}
+      justifyContent="flex-end"
     >
-      <Text type="header1" color={palette.Base.White} variant={variant}>
+      {skill === SkillChoose.Choose && <Img src={SmileIcon} />}
+      <Text type="header1" color={palette.Base.White}>
         {skill}
       </Text>
     </Container>
   )
 }
 
-const Container = styled(Flex)<Props>`
-  width: ${CONTAINER_WIDTH}rem;
-  height: ${({ variant }) =>
-    variant === 'big'
-      ? `${CONTAINER_HEIGHT_LARGE}rem`
-      : `${CONTAINER_HEIGHT_SMALL}rem`};
-  background-color: ${({ skill }) => SkillColorMap[skill]};
+const Img = styled.img`
+  width: 3rem;
+  height: 3rem;
+  margin-bottom: 0.25rem;
+  @media (max-width: ${Breakpoints.ContentArea}) {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
 `
 
-const Text = styled(Typo)<Pick<Props, 'variant'>>`
+const Text = styled(Typo)`
   color: ${palette.Base.White};
-  ${({ variant }) =>
-    variant === 'big' &&
-    css`
-      margin-bottom: ${pxToRem(24)}rem;
-    `}
   width: 100%;
   text-align: center;
+  @media (max-width: ${Breakpoints.ContentArea}) {
+    font-size: ${pxToRem(10)}rem;
+  }
+`
+
+const Container = styled(Flex)<Props>`
+  flex: 1;
+  aspect-ratio: ${({ variant }) => (variant === 'small' ? 1 : undefined)};
+  height: ${({ variant }) => (variant === 'big' ? '100%' : undefined)};
+  background-color: ${({ skill }) => Colors[skill]};
+  padding-bottom: ${({ skill }) =>
+    skill === SkillChoose.Choose ? '1rem' : '1.5rem'};
+  @media (max-width: ${Breakpoints.ContentArea}) {
+    padding-bottom: 1rem;
+  }
 `
 
 export default GraphPart
