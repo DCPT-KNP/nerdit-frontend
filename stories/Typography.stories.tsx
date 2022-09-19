@@ -1,73 +1,44 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import React from 'react'
 
+import Spacing from '../foundation/Spacing'
 import Typo from '../foundation/typography'
+import { TypographyType } from '../foundation/typography/types'
 
 export default {
   title: 'Typography',
   component: Typo,
 } as ComponentMeta<typeof Typo>
 
+const data: Record<TypographyType, string> = {
+  display1: 'Display 01',
+  display2: 'Display 02',
+  header1: 'Header 01',
+  header2: 'Header 02',
+  title1: 'Title 01',
+  title2: 'Title 02',
+  body1: 'Body 01',
+  body2: 'Body 02',
+  caption1: 'Caption 01',
+} as const
+
 const Template: ComponentStory<typeof Typo> = (args) => <Typo {...args} />
 
-export const Display_01 = Template.bind({})
-Display_01.args = {
-  Component: 'div',
-  type: 'display1',
+export const Preview = () => (
+  <>
+    {Object.keys(data).map((type) => (
+      <>
+        <Typo key={type} type={type as TypographyType}>
+          {data[type as TypographyType]}
+        </Typo>
+        <Spacing rem={1} />
+      </>
+    ))}
+  </>
+)
+
+export const Playground = Template.bind({})
+Playground.args = {
+  type: TypographyType.Display1,
   children: 'Display 01',
-}
-
-export const Display_02 = Template.bind({})
-Display_02.args = {
-  Component: 'div',
-  type: 'display2',
-  children: 'Display 02',
-}
-export const Header_01 = Template.bind({})
-Header_01.args = {
-  Component: 'div',
-  type: 'header1',
-  children: 'Header 1',
-}
-
-export const Header_02 = Template.bind({})
-Header_02.args = {
-  Component: 'div',
-  type: 'header2',
-  children: 'Header 2',
-}
-
-export const Title_01 = Template.bind({})
-Title_01.args = {
-  Component: 'div',
-  type: 'title1',
-  children: 'Title 1',
-}
-
-export const Title_02 = Template.bind({})
-Title_02.args = {
-  Component: 'div',
-  type: 'title2',
-  children: 'Title 2',
-}
-
-export const Body_01 = Template.bind({})
-Body_01.args = {
-  Component: 'div',
-  type: 'body1',
-  children: 'Body 1',
-}
-
-export const Body_02 = Template.bind({})
-Body_02.args = {
-  Component: 'div',
-  type: 'body2',
-  children: 'Body 2',
-}
-
-export const Caption_01 = Template.bind({})
-Caption_01.args = {
-  Component: 'div',
-  type: 'caption1',
-  children: 'Caption 1',
 }
