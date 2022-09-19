@@ -23,7 +23,7 @@ const Typo = <T extends ElementType = typeof DEFAULT_COMPONENT_TYPE>(
     type,
     children,
     Component = DEFAULT_COMPONENT_TYPE,
-    color = '#000',
+    color,
     ...rest
   }: PropsWithChildren<TypoProps>,
   ref: ForwardedRef<T>
