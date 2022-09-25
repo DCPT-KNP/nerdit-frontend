@@ -9,18 +9,16 @@ export default {
 } as ComponentMeta<typeof NavigatorTabGroup>
 
 export const Preview = () => (
-  <>
-    <NavigatorTabGroup
-      childProps={[
-        { children: 'Shape Modal' },
-        { children: 'Primary Skill' },
-        { children: 'Secondary Skill' },
-        { children: 'ETC Skill' },
-        { children: 'Final Model' },
-      ]}
-      activeIndex={2}
-    />
-  </>
+  <NavigatorTabGroup
+    childProps={[
+      { children: 'Shape Modal' },
+      { children: 'Primary Skill' },
+      { children: 'Secondary Skill' },
+      { children: 'ETC Skill' },
+      { children: 'Final Model' },
+    ]}
+    activeIndex={2}
+  />
 )
 
 const Template: ComponentStory<typeof NavigatorTabGroup> = (args) => (
