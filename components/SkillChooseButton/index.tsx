@@ -2,7 +2,7 @@ import styled from '@emotion/styled'
 import React from 'react'
 
 import { Skill, SkillNameMap } from '../../constants/skills'
-import { breakpoints } from '../../foundation/breakpoints'
+import { breakpointsHome } from '../../foundation/breakpointsHome'
 import palette from '../../foundation/palette'
 import Spacing from '../../foundation/Spacing'
 import Typo from '../../foundation/typography'
@@ -38,11 +38,11 @@ const Container = styled.button<{ clicked: boolean }>`
   border: 1px solid
     ${({ clicked }) => (clicked ? palette.Primary[10] : palette.Gray[20])};
   cursor: pointer;
-  @media (min-width: ${breakpoints.mobileMaxWidth}px) {
+  @media (min-width: ${breakpointsHome.mobileMaxWidth}px) {
     width: ${pxToRem(390)}rem;
     height: ${pxToRem(104)}rem;
   }
-  @media (max-width: ${breakpoints.mobileMaxWidth}px) {
+  @media (max-width: ${breakpointsHome.mobileMaxWidth}px) {
     width: 100%;
   }
   margin-bottom: 0.75rem;

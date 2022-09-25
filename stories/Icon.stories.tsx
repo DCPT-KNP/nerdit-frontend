@@ -1,7 +1,7 @@
 import { ComponentMeta } from '@storybook/react'
 import React, { useCallback } from 'react'
 
-import Icon, { iconImageMap, IconType } from '../components/Icon'
+import Icon, { iconImageMap, IconType } from '../foundation/Icon'
 
 export default {
   title: 'Icon',

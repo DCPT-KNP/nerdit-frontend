@@ -10,6 +10,7 @@ import checkImage from './images/check.svg'
 import closeImage from './images/close.svg'
 import deleteImage from './images/delete.svg'
 import editImage from './images/edit.svg'
+import helpImage from './images/help.svg'
 import infoImage from './images/info.svg'
 import menuImage from './images/menu.svg'
 import plusImage from './images/plus.svg'
@@ -30,6 +31,7 @@ export type IconType =
   | 'edit'
   | 'info'
   | 'menu'
+  | 'help'
 
 export const iconImageMap: Record<IconType, string> = {
   arrow_down: arrowDownImage,
@@ -45,6 +47,7 @@ export const iconImageMap: Record<IconType, string> = {
   plus: plusImage,
   reset: resetImage,
   setting: settingImage,
+  help: helpImage,
 }
 
 interface IconProps extends HTMLAttributes<HTMLImageElement> {
