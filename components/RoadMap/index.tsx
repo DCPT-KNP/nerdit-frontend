@@ -1,7 +1,6 @@
 import styled from '@emotion/styled'
 import React from 'react'
-import { RoadMap } from '../../constants/roadmap'
-import { RoadMapDescMap, RoadMapStepCount } from './constants'
+import { RoadMapStep, RoadMapDescMap, RoadMapStepCount } from './constants'
 import palette from '../../foundation/palette'
 import Typo from '../../foundation/typography'
 import Spacing from '../../foundation/Spacing'
@@ -27,7 +26,7 @@ const roadmapIamgeMap = {
 }
 
 interface Props {
-  roadmap: RoadMap
+  roadmap: RoadMapStep
 }
 
 const RoadMapCard = ({ roadmap }: Props) => {
@@ -37,7 +36,7 @@ const RoadMapCard = ({ roadmap }: Props) => {
         <Img src={roadmapIamgeMap[roadmap]}></Img>
       </SubContainer>
       <SubContainer height={TEXT_GROUP_HEIGHT}>
-        <Chip justifyContent="center" alignItems="center">
+        <Chip type="title2" color="#fff">
           {RoadMapStepCount[roadmap]}
         </Chip>
         <Spacing rem={TEXT_GROUP_GAP} inline />
@@ -54,7 +53,6 @@ const Container = styled(Flex)`
   width: ${CONTAINER_WIDTH}rem;
   gap: ${SUB_CONTAINER_GAP}rem;
 `
-
 const SubContainer = styled(Flex)<{ height: number }>`
   width: 100%;
   height: ${({ height }) => height}rem;
@@ -65,22 +63,18 @@ const Img = styled.img`
   height: ${IMAGE_HEIGHT}rem;
 `
 
-const Chip = styled(Flex)`
-  border-radius: 8px;
-  padding: 10px 16px;
-  width: 51px;
-  height: 21px;
-  font-family: Pretendard, sans-serif;
-  font-size: 14px;
-  font-weight: 700;
-  color: ${palette.Base.White};
+const Chip = styled(Typo)`
+  border-radius: ${pxToRem(8)}rem;
+  padding: ${pxToRem(10)}rem ${pxToRem(16)}rem;
+  width: ${pxToRem(51)}rem;
+  height: ${pxToRem(21)}rem;
   background-color: ${palette.Gray[50]};
 `
 
 const Text = styled(Typo)`
-  width: 290px;
+  width: ${pxToRem(290)}rem;
   text-align: left;
-  font-size: 12px;
+  font-size: ${pxToRem(12)}rem;
   font-weight: 500;
 `
 

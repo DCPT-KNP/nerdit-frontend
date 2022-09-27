@@ -3,9 +3,9 @@ import React from 'react'
 
 import Flex from '../components/Flex'
 import RoadMapCard from '../components/RoadMap'
-import { RoadMap } from '../constants/roadmap'
+import { RoadMapStep } from '../components/RoadMap/constants'
 
-const RoadMapArray = Object.values(RoadMap)
+const RoadMapArray = Object.values(RoadMapStep)
 
 export default {
   title: 'Road Map Card',
